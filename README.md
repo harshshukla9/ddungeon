@@ -1,5 +1,6 @@
 <p align="center">
-<img src="./assets/logo.png" alt=""  width="400px"/></p>
+<img width="8192" height="5548" alt="logo" src="https://github.com/user-attachments/assets/3a906008-453c-46a2-aae5-06196dc92e8f" />
+
 
 Welcome to Darkest Dungeon, an infinite procedural dungeon-crawling adventure where danger lurks around every corner! 🧙‍♂️⚔️ Explore mysterious dungeons, collect treasures, defeat fearsome enemies, and race to find the stairs to escape to the next level! But beware—each level gets harder, and you only have 3 lives. Can you survive the darkness and climb to glory?
 
@@ -60,12 +61,12 @@ Contract Token Dungeon at [0x0dD2B638b6975d5bB755554AAE8e5f52De570FDd] on Etherl
   <tr>
     <td valign="top" width="50%">
       <br>
-      <img src="./assets/1.png" alt="" >
-    </td>
-    <td valign="top" width="50%">
-      <br>
-      <img src="./assets/2.png" alt="" >
-    </td>
+      <img width="3326" height="2160" alt="1 (1)" src="https://github.com/user-attachments/assets/298efffb-9d07-43bf-8e0b-685ed89c0f8d" />
+      
+  <img width="3326" height="2160" alt="2 (1)" src="https://github.com/user-attachments/assets/dc712b76-21e1-4c21-ac06-2dcf0c694477" />
+
+    
+
   </tr>
 </table>
 
@@ -74,24 +75,23 @@ Contract Token Dungeon at [0x0dD2B638b6975d5bB755554AAE8e5f52De570FDd] on Etherl
     <td valign="top" width="50%">
       <br>
             <img src="./assets/3.png" alt="" >
-    </td>
-    <td valign="top" width="50%">
-      <br>
-            <img src="./assets/4.png" alt="" >
-    </td>
+      <img width="3326" height="2160" alt="4 (1)" src="https://github.com/user-attachments/assets/b053ba34-820c-4f0d-8740-0577ae2ebf28" />
+
+  <img width="3326" height="2160" alt="3 (1)" src="https://github.com/user-attachments/assets/cedff859-63bf-4d38-a0a6-752e501bff87" />
+
+
+
+
   </tr>
 </table>
 
 <table>
   <tr>
     <td valign="top" width="50%">
-      <br>
-            <img src="./assets/5.png" alt="" >
-    </td>
-    <td valign="top" width="50%">
-      <br>
-            <img src="./assets/6.png" alt="" >
-    </td>
+      <br><img width="3326" height="2160" alt="6 (1)" src="https://github.com/user-attachments/assets/83b4208c-22c2-4c13-9d1c-6315978d2826" />
+
+        
+   
   </tr>
 </table>
 
