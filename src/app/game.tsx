@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import { createFileRoute } from '@tanstack/react-router';
 import { observer } from 'mobx-react-lite';
 import Phaser from 'phaser';
-import { type StoreArgs, useGameActions } from '~/hooks';
+import { type StoreArgs, useGameActions, useSettings } from '~/hooks';
 
 import { gameState } from '~/components/game/state';
 import { LoadingOverlay } from '~/components/loading-overlay';
@@ -32,9 +32,10 @@ export const GameComponent = ({
 }) => {
   const gameContainerRef = useRef<HTMLDivElement>(null);
   const phaserGameRef = useRef<Phaser.Game | null>(null);
+  const { settings, isLoaded } = useSettings();
 
   useEffect(() => {
-    if (gameContainerRef.current) {
+    if (gameContainerRef.current && isLoaded) {
       const config: Phaser.Types.Core.GameConfig = {
         width: 800,
         height: 600,
@@ -45,7 +46,7 @@ export const GameComponent = ({
           height: '100%',
         },
         parent: 'game-container',
-        pixelArt: true,
+        pixelArt: settings.pixelArtMode,
         physics: {
           default: 'arcade',
           arcade: {
@@ -65,11 +66,12 @@ export const GameComponent = ({
         phaserGameRef.current = null;
       }
     };
-  }, []);
+  }, [isLoaded, settings.pixelArtMode, storeFn]);
 
   return (
     <div>
       <GameDetails />
+      {settings.showFPS ? <FPSDisplay /> : null}
       <div ref={gameContainerRef} id='game-container' />
     </div>
   );
@@ -120,6 +122,7 @@ const RoundTimer = observer(() => {
 
 const PlayerHealth = observer(() => {
   const totalLives = Array.from({ length: gameState.totalLives }, (_, i) => i);
+  const { getSetting } = useSettings();
 
   return (
     <div className='absolute top-4 left-4 flex flex-col gap-4'>
@@ -133,12 +136,14 @@ const PlayerHealth = observer(() => {
           />
         ))}
       </div>
-      <div className='flex h-2 w-[200px] items-center justify-start rounded-[6px] bg-accent'>
-        <div
-          className='h-2 rounded-[5px] bg-red-500'
-          style={{ width: `${String(gameState.playerHealth)}%` }}
-        />
-      </div>
+      {getSetting('showHealthBars') && (
+        <div className='flex h-2 w-[200px] items-center justify-start rounded-[6px] bg-accent'>
+          <div
+            className='h-2 rounded-[5px] bg-red-500'
+            style={{ width: `${String(gameState.playerHealth)}%` }}
+          />
+        </div>
+      )}
     </div>
   );
 });
@@ -158,3 +163,32 @@ const CurrentRound = observer(() => {
     </div>
   );
 });
+
+const FPSDisplay = () => {
+  const [fps, setFps] = useState(0);
+  const [frameCount, setFrameCount] = useState(0);
+  const [lastTime, setLastTime] = useState(Date.now());
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const now = Date.now();
+      const deltaTime = now - lastTime;
+      
+      setFrameCount(prev => prev + 1);
+      
+      if (deltaTime >= 1000) {
+        setFps(Math.round((frameCount * 1000) / deltaTime));
+        setFrameCount(0);
+        setLastTime(now);
+      }
+    }, 16); // ~60fps update rate
+
+    return () => clearInterval(interval);
+  }, [frameCount, lastTime]);
+
+  return (
+    <div className='absolute top-4 right-4 bg-black/50 px-2 py-1 rounded text-white text-sm font-mono'>
+      FPS: {fps}
+    </div>
+  );
+};
