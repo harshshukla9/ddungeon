@@ -7,11 +7,15 @@ import { type StoreArgs, useGameActions, useSettings } from '~/hooks';
 
 import { gameState } from '~/components/game/state';
 import { LoadingOverlay } from '~/components/loading-overlay';
+import { MultiplayerUI } from '~/components/multiplayer-ui';
+import { multiplayerState } from '~/lib/multiplayer';
 
 import {
   DungeonGameScene,
   GameOverScene,
   HomeScene,
+  MultiplayerDungeonScene,
+  MultiplayerLobbyScene,
 } from '../components/game/scenes';
 
 
@@ -40,7 +44,7 @@ export const GameComponent = ({
         width: 800,
         height: 600,
         type: Phaser.AUTO,
-        scene: [HomeScene, DungeonGameScene, new GameOverScene(storeFn)],
+        scene: [HomeScene, DungeonGameScene, new GameOverScene(storeFn), MultiplayerLobbyScene, MultiplayerDungeonScene],
         scale: {
           width: '100%',
           height: '100%',
@@ -91,6 +95,12 @@ const GameDetails = observer(() => {
         <CurrentRound />
       </>
     );
+  
+  // Show multiplayer UI when in multiplayer dungeon
+  if (multiplayerState.currentRoom && multiplayerState.isConnected)
+    return <MultiplayerUI />;
+    
+  return null;
 });
 
 const RoundTimer = observer(() => {

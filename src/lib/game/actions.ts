@@ -231,18 +231,25 @@ export const createMap = (scene: DungeonGameScene) => {
     TILES.STAIRS,
     () => {
       stuffLayer.setTileIndexCallback(TILES.STAIRS, () => true, {});
-      scene.endRound();
-      scene.player.freeze();
-      const cam = scene.cameras.main;
-      cam.fade(250, 0, 0, 0);
-      cam.once('camerafadeoutcomplete', () => {
-        gameState.incrementLevel();
-        scene.player.destroy();
-        scene.enemies = [];
-        scene.coins = [];
-
-        scene.scene.restart();
-      });
+      
+      // Handle stairs interaction for both single-player and multiplayer scenes
+      if ('endRound' in scene && typeof scene.endRound === 'function') {
+        // Single-player scene
+        scene.endRound();
+        scene.player.freeze();
+        const cam = scene.cameras.main;
+        cam.fade(250, 0, 0, 0);
+        cam.once('camerafadeoutcomplete', () => {
+          gameState.incrementLevel();
+          scene.player.destroy();
+          scene.enemies = [];
+          scene.coins = [];
+          scene.scene.restart();
+        });
+      } else if ('completeLevel' in scene && typeof scene.completeLevel === 'function') {
+        // Multiplayer scene
+        scene.completeLevel();
+      }
     },
     {}
   );

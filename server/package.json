@@ -1,0 +1,16 @@
+{
+  "name": "ddungeon-multiplayer-server",
+  "version": "1.0.0",
+  "description": "WebSocket server for DDungeon multiplayer",
+  "main": "server-example.js",
+  "scripts": {
+    "start": "node server-example.js",
+    "dev": "nodemon server-example.js"
+  },
+  "dependencies": {
+    "socket.io": "^4.7.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  }
+}

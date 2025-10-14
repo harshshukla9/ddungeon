@@ -92,7 +92,7 @@ export const enemies: EnemyType[] = [
     key: 'skeleton',
     weight: 30,
     maxHealth: 50,
-    dps: 1,
+    dps: 10,
     movementSpeed: 100,
     attackCooldown: 2000,
     pointsOnKill: 100,
