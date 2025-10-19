@@ -1,27 +1,27 @@
 import { defineChain } from 'viem'
 
-export const etherlink = defineChain({
-  id: 128123,
-  name: 'Etherlink',
-  network: 'etherlink',
+export const flowTestnet = defineChain({
+  id: 545,
+  name: 'Flow EVM Testnet',
+  network: 'flow-testnet',
   nativeCurrency: {
     decimals: 18,
-    name: 'Ethereum',
-    symbol: 'XTZ',
+    name: 'Flow',
+    symbol: 'FLOW',
   },
   rpcUrls: {
     default: {
-      http: ['https://rpc.ankr.com/etherlink_testnet'],
+      http: ['https://testnet.evm.nodes.onflow.org'],
     },
     public: {
-      http: ['https://rpc.ankr.com/etherlink_testnet'],
+      http: ['https://testnet.evm.nodes.onflow.org'],
     },
   },
   blockExplorers: {
     default: {
-      name: 'Etherlink Explorer',
-      url: 'https://explorer.etherlink.com',
+      name: 'Flow Testnet Explorer',
+      url: 'https://evm-testnet.flowscan.io',
     },
   },
   testnet: true,
-});
+})
