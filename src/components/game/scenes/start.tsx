@@ -10,7 +10,8 @@ export class HomeScene extends Phaser.Scene {
   preload() {
     this.load.image('background', '/background.png');
     this.load.image('logo', '/logo.png');
-    this.load.image('button', '/button.png');
+    this.load.image('single-button', '/single-button.png');
+    this.load.image('multi-button', '/multi-button.png');
   }
 
   create() {
@@ -49,36 +50,17 @@ Good luck!
 
     // Add Start Game Button
     const startButton = this.add
-      .image(width / 2, (height / 3) * 2 - 30, 'button')
+      .image(width / 2, (height / 3) * 2 - 35, 'single-button')
       .setInteractive()
       .setScale(1)
       .setDepth(1);
 
     // Add Multiplayer Button
     const multiplayerButton = this.add
-      .image(width / 2, (height / 3) * 2 + 30, 'button')
+      .image(width / 2, (height / 3) * 2 + 50, 'multi-button')
       .setInteractive({ useHandCursor: true })
       .setScale(1)
       .setDepth(1);
-
-    // Add button text
-    this.add
-      .text(width / 2, (height / 3) * 2 - 30, 'Single Player', {
-        fontSize: '16px',
-        color: '#ffffff',
-        fontFamily: 'Arial',
-      })
-      .setOrigin(0.5)
-      .setDepth(2);
-
-    this.add
-      .text(width / 2, (height / 3) * 2 + 30, 'Multiplayer', {
-        fontSize: '16px',
-        color: '#ffffff',
-        fontFamily: 'Arial',
-      })
-      .setOrigin(0.5)
-      .setDepth(2);
 
     // Add button functionality
     startButton.on('pointerdown', () => {
