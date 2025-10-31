@@ -33,17 +33,76 @@ Explore rooms, defeat enemies, and find the stairs to advance to the next level.
 
 ---
 
-## 🛠️ Built for CoreGaming Hackathon
+## 🛠️ Built for Forte Hacks Hackathon
 
-This game is built for the Base Hackathon using modern tools and Web3 integrations. Here’s what powers the dungeon:
+This game is built for the [Forte Hacks Hackathon](https://www.hackquest.io/hackathons/Forte-Hacks) using modern tools and Web3 integrations. Here's what powers the dungeon:
 
+### 🔗 On-Chain Features
 
-- On-Chain Features: Store scores and timer data on-chain, unlocking special perks for future playthroughs.
-- Minting the score in form of Token Dungeon(DGN)
+- **Score Storage**: All your play records, scores, and round timings are permanently stored on-chain
+- **ERC721 NFT Minting**: Each player receives an NFT that tracks their progress and achievements
+- **Token Rewards**: Earn Dungeon Tokens ($DGN) based on your score (1 score = 1 DGN token)
+- **Profile System**: View your complete gaming history including all sessions, scores, and timings
+- **Immutable Records**: Your achievements are forever recorded on the Flow blockchain
 
-Chainid[128126]
-Contracts are deployed at [0x75A2D95e300A4fD89c9c7999629455c841607BC5] on EtherLink Testnet.
-Contract Token Dungeon at [0x0dD2B638b6975d5bB755554AAE8e5f52De570FDd] on Etherlink Testnet.
+### 📋 Contract Deployment
+
+**Network**: Flow Testnet
+
+**Deployer Address**: 0x09Fe5ac53e9aB96755Bd550bC8AeD6b3584F526A
+
+- **Dungeon Token**: 0x243d9Dc72D8FD5aC05636A35D210258cbb46470f
+- **Darkest Dungeon**: 0x72419DF6e4B30009DeE8c1E82cBb0424f9E03503
+
+---
+
+## ✨ What's New
+
+We've introduced exciting new features to enhance your dungeon-crawling experience:
+
+### 🎮 Multiplayer Mode
+
+Experience the dungeon with friends! Our real-time multiplayer system supports both cooperative and competitive gameplay:
+
+**Game Modes:**
+- **Cooperative Mode**: Team up with up to 4 players! Share health pools and combine scores as you work together to survive the dungeon.
+- **Competitive Mode**: Compete individually for the highest score. Each player has their own health and score - last adventurer standing wins!
+
+**Features:**
+- Real-time synchronization of player movements, attacks, and game events
+- Room system: Create or join game rooms with custom names
+- Lobby system: Easy room discovery and player management
+- Player customization: Choose your color (Red, Blue, Green, Yellow, Purple, Orange)
+- Socket.IO WebSocket communication for low-latency gameplay
+- MobX state management for smooth reactive updates
+
+**Setup:** Requires running a multiplayer server (see [MULTIPLAYER_SETUP.md](./MULTIPLAYER_SETUP.md) for details)
+
+### ⚙️ Settings Function
+
+Fully customizable gaming experience with a comprehensive settings menu:
+
+**Audio Settings:**
+- Master Volume control
+- Separate Music and Sound Effects volume sliders
+- Real-time audio adjustments
+
+**Graphics Settings:**
+- Pixel Art Mode toggle for crisp rendering
+- FPS Counter display option
+- Fullscreen mode support
+
+**Gameplay Settings:**
+- Difficulty levels: Easy, Normal, Hard
+- Auto-save progress between sessions
+- Health bars toggle for enemies and players
+- Minimap display option
+
+**Controls:**
+- Adjustable movement speed (0.5x - 2.0x)
+- Customizable attack cooldown (200ms - 1000ms)
+
+All settings are automatically saved to localStorage and persist across sessions!
 
 ---
 
@@ -51,9 +110,9 @@ Contract Token Dungeon at [0x0dD2B638b6975d5bB755554AAE8e5f52De570FDd] on Etherl
 
 🔮 Our journey doesn't stop here! Planned future features include:
 
-- Multiplayer Mode: Team up or compete with friends in the dungeon.
 - Boss Fights: Face epic enemies with unique mechanics.
 - More Loot, More Enemies, More Challenges: Expand the dungeon universe with richer gameplay.
+- Advanced Multiplayer Features: Enhanced team mechanics, leaderboards, and competitive modes.
 
 ## Screenshots 📸
 
@@ -99,25 +158,90 @@ Contract Token Dungeon at [0x0dD2B638b6975d5bB755554AAE8e5f52De570FDd] on Etherl
 
 [![Demo Video](https://img.youtube.com/vi/irDNxg45pvI/0.jpg)](https://drive.google.com/file/d/1Lvz8LfjYXmeXEXI58USYaiUbsz8eG1-9/view?usp=sharing)
 
+## 🛠️ Tech Stack
+
+This project is built with modern web technologies and Web3 integration:
+
+**Frontend:**
+- **React** + **Vite** - Fast, modern web framework
+- **Phaser.js** - Professional game engine for 2D games
+- **TanStack Router** - Type-safe routing
+- **Tailwind CSS** - Utility-first CSS framework
+- **Shadcn UI** - High-quality component library
+
+**Multiplayer:**
+- **Socket.IO** - Real-time WebSocket communication
+- **MobX** - Reactive state management
+- **Node.js** - Multiplayer server backend
+
+**Web3 Integration:**
+- **RainbowKit** - Beautiful wallet connection UI
+- **Wagmi** - React hooks for Ethereum
+- **Solidity** - Smart contract development
+- **Foundry** - Smart contract development toolkit
+- **OpenZeppelin** - Secure, audited smart contract libraries
+
+**Blockchain:**
+- **Flow Testnet** - Layer 1 blockchain for deployment
+- **ERC721** - NFT standard for achievement tracking
+- **ERC20** - Token standard for $DGN rewards
+
 ## Get Started 🚀
 
-The following repository is a turborepo and divided into the following:
+### Prerequisites
 
-- **apps/web** - The web application built using VITE.
+- Node.js (v18 or higher)
+- pnpm package manager
+- A Web3 wallet (RainbowKit compatible) for on-chain features
+
+### Installation
 
 First install the dependencies by running the following:
 
+```bash
+pnpm install
 ```
 
-pnpm install
+### Running the Game
 
-
-
-Then run the following command to start the application:
+Start the web application:
 
 ```bash
 pnpm dev
 ```
+
+The game will be available at `http://localhost:5173` (Vite default port).
+
+### Running Multiplayer Mode
+
+To use multiplayer features, you'll need to start the WebSocket server:
+
+```bash
+# Navigate to server directory
+cd server
+
+# Install server dependencies
+pnpm install
+
+# Start the server
+pnpm start
+```
+
+The server runs on `http://localhost:3001` by default. See [MULTIPLAYER_SETUP.md](./MULTIPLAYER_SETUP.md) for detailed setup instructions.
+
+### Game Controls
+
+- **Movement**: Arrow keys or WASD
+- **Attack**: Spacebar
+- **Return to Menu**: ESC key (in multiplayer)
+
+### Features Overview
+
+- **Single Player**: Classic dungeon crawling experience
+- **Multiplayer**: Real-time cooperative or competitive gameplay
+- **Profile**: View your on-chain gaming history and achievements
+- **Settings**: Customize audio, graphics, and gameplay to your preferences
+- **Web3 Integration**: Connect your wallet to store scores and mint tokens on-chain
 
 Happy Crawling! 🚪💎
 
