@@ -2,7 +2,7 @@
 <img width="8192" height="5548" alt="logo" src="https://github.com/user-attachments/assets/3a906008-453c-46a2-aae5-06196dc92e8f" />
 
 
-Welcome to Darkest Dungeon, an infinite procedural dungeon-crawling adventure where danger lurks around every corner! 🧙‍♂️⚔️ Explore mysterious dungeons, collect treasures, defeat fearsome enemies, and race to find the stairs to escape to the next level! But beware—each level gets harder, and you only have 3 lives. Can you survive the darkness and climb to glory?
+Welcome to Darkest Dungeon, an infinite procedural dungeon-crawling adventure where danger lurks around every corner! 🧙‍♂️⚔️ Explore mysterious dungeons, collect treasures, defeat fearsome enemies, and race to find the stairs to escape to the next level! But beware-each level gets harder, and you only have 3 lives. Can you survive the darkness and climb to glory?
 
 💰 Earn as You Play! The core you collect in the game can be minted into Dungeon Tokens ($DGN), making every adventure not just thrilling but also rewarding! 🚀🔥
 
@@ -15,7 +15,7 @@ Welcome to Darkest Dungeon, an infinite procedural dungeon-crawling adventure wh
   - Skeletons: Common foes with average stats.
   - Archers: Dangerous enemies with long-range attacks, higher HP, and higher damage per second (DPS).
 - **Loot System**: Collect coins to increase your score and HP. Coins come in various forms:
-  - 🪙 Silver
+  - ⚪ Silver
   - 🟡 Gold
   - 🟢 Emerald
   - 🔴 Ruby
@@ -49,10 +49,10 @@ This game is built for the [Forte Hacks Hackathon](https://www.hackquest.io/hack
 
 **Network**: Flow Testnet
 
-**Deployer Address**: 0x09Fe5ac53e9aB96755Bd550bC8AeD6b3584F526A
+**Deployer Address**: `0x09Fe5ac53e9aB96755Bd550bC8AeD6b3584F526A`
 
-- **Dungeon Token**: 0x243d9Dc72D8FD5aC05636A35D210258cbb46470f
-- **Darkest Dungeon**: 0x72419DF6e4B30009DeE8c1E82cBb0424f9E03503
+- **Dungeon Token**: `0x243d9Dc72D8FD5aC05636A35D210258cbb46470f`
+- **Darkest Dungeon**: `0x72419DF6e4B30009DeE8c1E82cBb0424f9E03503`
 
 ---
 
@@ -123,6 +123,7 @@ All settings are automatically saved to localStorage and persist across sessions
       <img width="3326" height="2160" alt="1 (1)" src="https://github.com/user-attachments/assets/298efffb-9d07-43bf-8e0b-685ed89c0f8d" />
       
   <img width="3326" height="2160" alt="2 (1)" src="https://github.com/user-attachments/assets/dc712b76-21e1-4c21-ac06-2dcf0c694477" />
+  <img width="1830" height="906" alt="DdungeonMulti" src="https://github.com/user-attachments/assets/5562fecd-fafb-45a6-b618-559f9cd6397c" />
 
     
 
@@ -137,6 +138,7 @@ All settings are automatically saved to localStorage and persist across sessions
       <img width="3326" height="2160" alt="4 (1)" src="https://github.com/user-attachments/assets/b053ba34-820c-4f0d-8740-0577ae2ebf28" />
 
   <img width="3326" height="2160" alt="3 (1)" src="https://github.com/user-attachments/assets/cedff859-63bf-4d38-a0a6-752e501bff87" />
+  <img width="1850" height="899" alt="DdungeonMulti2" src="https://github.com/user-attachments/assets/173eef32-db40-4a26-ab18-e557c43bd2f3" />
 
 
 
@@ -156,7 +158,7 @@ All settings are automatically saved to localStorage and persist across sessions
 
 ## 🎥 Demo Video
 
-[![Demo Video](https://img.youtube.com/vi/irDNxg45pvI/0.jpg)](https://drive.google.com/file/d/1Lvz8LfjYXmeXEXI58USYaiUbsz8eG1-9/view?usp=sharing)
+[![Demo Video](https://img.youtube.com/vi/irDNxg45pvI/0.jpg)](https://drive.google.com/file/d/15gvqOmkVZq93vzZqokPJdH4U-Y30dWsX/view?usp=sharing)
 
 ## 🛠️ Tech Stack
 
