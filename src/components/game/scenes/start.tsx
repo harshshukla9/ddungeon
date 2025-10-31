@@ -17,7 +17,22 @@ export class HomeScene extends Phaser.Scene {
   create() {
     console.log('HomeScene created');
     const { width, height } = this.scale;
-    this.add.image(width / 2, height / 2, 'background').setScale(1);
+    const bgImage = this.add.image(width / 2, height / 2, 'background');
+    
+    // Get the actual texture dimensions
+    const texture = bgImage.texture;
+    const source = texture.source[0];
+    const bgWidth = source?.width ?? bgImage.width;
+    const bgHeight = source?.height ?? bgImage.height;
+    
+    // Calculate scale to cover the entire viewport while maintaining aspect ratio
+    const scaleX = width / bgWidth;
+    const scaleY = height / bgHeight;
+    const scale = Math.max(scaleX, scaleY);
+    
+    bgImage
+      .setOrigin(0.5, 0.5)
+      .setScale(scale);
 
     this.add
       .image(width / 2, height / 4, 'logo')
