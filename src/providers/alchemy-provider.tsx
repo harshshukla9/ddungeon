@@ -35,6 +35,7 @@ const CustomRainbowKitProvider = ({ children }: { children: ReactNode }) => {
         </RainbowKitProvider>
       </QueryClientProvider>
     </WagmiProvider>
+    //ff
   );
 };
 
