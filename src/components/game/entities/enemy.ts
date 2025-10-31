@@ -55,12 +55,16 @@ export class Enemy {
     this.sprite.body.moves = false;
   }
 
-  public moveTowardPlayer(scene: DungeonGameScene): void {
+  public moveTowardPlayer(scene: any): void {
     if (!this.sprite) return;
+    
+    // Handle both single player (scene.player) and multiplayer (scene.localPlayer)
+    const player = scene.player || scene.localPlayer;
+    if (!player || !player.sprite) return;
 
     const distance = Phaser.Math.Distance.Between(
-      scene.player.sprite.x,
-      scene.player.sprite.y,
+      player.sprite.x,
+      player.sprite.y,
       this.sprite.x,
       this.sprite.y
     );
@@ -71,7 +75,7 @@ export class Enemy {
     ) {
       scene.physics.moveToObject(
         this.sprite,
-        scene.player.sprite,
+        player.sprite,
         this.enemyType.movementSpeed
       );
     } else {
@@ -79,9 +83,11 @@ export class Enemy {
     }
   }
 
-  public attack(scene: DungeonGameScene): void {
+  public attack(scene: any): void {
     if (!this.sprite) return;
-    const player = scene.player;
+    // Handle both single player (scene.player) and multiplayer (scene.localPlayer)
+    const player = scene.player || scene.localPlayer;
+    if (!player || !player.sprite) return;
     if (scene.time.now - this.lastAttackTime > this.enemyType.attackCooldown) {
       const distance = Phaser.Math.Distance.Between(
         this.sprite.x,
@@ -100,6 +106,8 @@ export class Enemy {
   }
 
   public onHitByPlayer(scene: Phaser.Scene): void {
+    if (!this.sprite) return; // Safety check
+    
     this.health -= 30;
     this.lastAttackTime = scene.time.now;
     this.healthBar.takeDamage(30);
@@ -127,7 +135,8 @@ export class Enemy {
   }
 
   update(scene: DungeonGameScene, activeRoom: Room) {
-    if (!this.sprite) return;
+    if (!this.sprite || !this.sprite.body) return;
+    
     const enemyTileX = scene.groundLayer.worldToTileX(this.sprite.x);
     const enemyTileY = scene.groundLayer.worldToTileY(this.sprite.y);
     const enemyRoom = scene.dungeon.getRoomAt(enemyTileX, enemyTileY);

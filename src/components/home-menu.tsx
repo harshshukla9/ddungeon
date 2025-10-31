@@ -32,7 +32,10 @@ export const HomeMenu = () => {
     {
       name: 'Settings',
       key: 'settings',
-      onClick: () => true,
+      onClick: () =>
+        navigate({
+          to: '/settings',
+        }),
     },
   ];
 

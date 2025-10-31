@@ -10,10 +10,12 @@ export class HomeScene extends Phaser.Scene {
   preload() {
     this.load.image('background', '/background.png');
     this.load.image('logo', '/logo.png');
-    this.load.image('button', '/button.png');
+    this.load.image('single-button', '/single-button.png');
+    this.load.image('multi-button', '/multi-button.png');
   }
 
   create() {
+    console.log('HomeScene created');
     const { width, height } = this.scale;
     this.add.image(width / 2, height / 2, 'background').setScale(1);
 
@@ -48,15 +50,28 @@ Good luck!
 
     // Add Start Game Button
     const startButton = this.add
-      .image(width / 2, (height / 3) * 2, 'button')
+      .image(width / 2, (height / 3) * 2 - 35, 'single-button')
       .setInteractive()
+      .setScale(1)
+      .setDepth(1);
+
+    // Add Multiplayer Button
+    const multiplayerButton = this.add
+      .image(width / 2, (height / 3) * 2 + 50, 'multi-button')
+      .setInteractive({ useHandCursor: true })
       .setScale(1)
       .setDepth(1);
 
     // Add button functionality
     startButton.on('pointerdown', () => {
+      console.log('Single player button clicked');
       gameState.activeScene = 'game';
       this.scene.start('GameScene');
+    });
+
+    multiplayerButton.on('pointerdown', () => {
+      console.log('Multiplayer button clicked - user action');
+      this.scene.start('MultiplayerLobbyScene');
     });
   }
 }

@@ -8,12 +8,12 @@ import {
 import { WagmiProvider } from "wagmi";
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 ; // assuming this is also defined via `defineChain`
-import { etherlink } from "../utils/Contract";     // your ether link config here
+import { flowTestnet } from "../utils/Contract";   
 
 const config = getDefaultConfig({
   appName: "Dungeon",
   projectId: "1d26e3b9bc5a24bc32a6f92da8f54a85", // WalletConnect project ID
-  chains: [etherlink], // ✅ include etherlink here
+  chains: [flowTestnet],
   ssr: false,
 });
 
